@@ -1,16 +1,16 @@
 {
   "compilerOptions": {
-    "composite": true,
-    "tsBuildInfoFile": "./node_modules/.dottsbuildinfo",
+    "target": "ESNext",         // Line Change: Changed from ES5 to ESNext
+    "module": "ESNext",         // Line Change: Ensures modern module support
+    "moduleResolution": "bundler", 
+    "useDefineForClassFields": true,
+    "lib": ["ESNext", "DOM", "DOM.Iterable"], 
+    "skipLibCheck": true,       // Line Change: Prevents errors from node_modules
+    "esModuleInterop": true,
     "allowImportingTsExtensions": true,
-    "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    "jsx": "react-jsx"
   },
-  "include": ["src"] 
+  "include": ["src"]
 }
