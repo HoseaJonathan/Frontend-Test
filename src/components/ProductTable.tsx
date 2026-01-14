@@ -1,6 +1,6 @@
 // main component using tanstack table to display data
 import { useReactTable, getCoreRowModel, flexRender, createColumnHelper} from "@tanstack/react-table";
-import { Product } from "@/Types/Product";
+import { Product } from "../Types/Product";
 
 const columnHelper = createColumnHelper<Product>();
 
