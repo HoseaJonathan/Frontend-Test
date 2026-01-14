@@ -12,9 +12,25 @@ const fetchProducts = async (search: string, skip: number): Promise<ProductRespo
   return data;
 };
 
-export const useProducts = (search: string, page: number) => {
-  return useQuery({
-    queryKey: ['products', search, page], 
-    queryFn: () => fetchProducts(search, page * 10), 
+export const useProducts = (search: string, page: number, category:string) => {
+  return useQuery<ProductResponse>({
+   queryKey: ['products', search, page, category], 
+    queryFn: async () => {
+      let url = `https://dummyjson.com/products`;
+      
+      if (category && !search) {
+        url = `https://dummyjson.com/products/category/${category}`;
+      } else if (search) {
+        url = `https://dummyjson.com/products/search?q=${search}`;
+      }
+
+      const { data } = await axios.get(url, {
+        params: {
+          limit: 10,
+          skip: page * 10,
+        },
+      });
+      return data;
+    },
   });
 };

@@ -8,8 +8,8 @@ function App() {
 
   const [search, setSearch] = useState(''); 
   const [page, setPage] = useState(0);    
-
-  const { data, isLoading, isError, error} = useProducts(search, page);
+  const[category, setCategory] = useState(' ')
+  const { data, isLoading, isError, error} = useProducts(search, page, category);
 
   if (isError) {
     return (
@@ -33,6 +33,18 @@ function App() {
           setPage(0)
         }}
       />
+          <select 
+              className="filterSelect"
+              onChange={(e) => { setCategory(e.target.value); setPage(0); }}
+          >
+              <option value="">All Categories</option>
+              <option value="beauty">Beauty</option>
+              <option value="fragrances">Fragrances</option>
+              <option value="furniture">Furniture</option>
+              <option value="groceries">Groceries</option>
+          </select>
+
+
 
         {isLoading ? (
           <div className='loadingSpin'>Loading Products...</div>
