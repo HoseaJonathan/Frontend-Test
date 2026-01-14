@@ -1,0 +1,33 @@
+body {
+ display: flex;
+  justify-content: center; 
+  align-items: center;   
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.pagination {
+  padding: 10px;
+}
+
+.prevButton {
+  margin-right: 10px;
+}
+
+.nextButton {
+  margin-left: 10px;
+}
+
+.tableWrapper table {
+  width: 100%;
+  border-spacing: 0; /* Removes gaps between borders */
+}
+
+.tableWrapper th, 
+.tableWrapper td {
+  padding: 16px 20px; /* This adds the "space" inside each cell */
+  text-align: left;
+}
